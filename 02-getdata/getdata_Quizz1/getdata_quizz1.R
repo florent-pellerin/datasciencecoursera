@@ -68,6 +68,7 @@ loadXmlUrl <- function(url, filename) {
 
 pkg <- function(pkgname) {
   if (!require(pkgname, character.only = TRUE)) {
-    install.packages(pkgname, character.only = TRUE)
+    install.packages(pkgname, dependencies = TRUE)
+    require(pkgname, character.only = TRUE)
   }
 }
